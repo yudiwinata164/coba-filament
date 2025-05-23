@@ -50,7 +50,8 @@ class GalleryResource extends Resource
         return $table
      ->columns([
             ImageColumn::make('image_name')
-                ->label('Gambar')
+                ->label('Image')
+                ->height(200)
                 ->disk('public'),
         ])
         ->actions([

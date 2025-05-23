@@ -15,9 +15,9 @@ class ListSeosettings extends ListRecords
         // Ambil record pertama atau buat baru jika tidak ada
         $seoSetting = Seosetting::first() ?? Seosetting::create([
             'title' => '',
-            'keyword' => '',
-            'metatext' => '',
             'description' => '',
+            'keyword' => '',
+            'og_image' => '',
         ]);
 
         // Redirect ke halaman edit langsung

@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('seosettings', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description');
+            $table->string('title', 60);
+            $table->string('description', 160);
             $table->string('keyword');
-            $table->string('metatext');
+            $table->string('og_image');
             $table->timestamps();
         });
     }

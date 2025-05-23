@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text("content");
             $table->string("featured_image");
             $table->string("keyword");
+            $table->string("description", 160);
             $table->timestamps();
         });
 

@@ -37,10 +37,10 @@ class PageResource extends Resource
                 TextInput::make('title')
                     ->required()
                     ->reactive()
-                    ->debounce(2000) // ⏱ kurangi beban saat mengetik
+                    ->debounce(2000)
                     ->afterStateUpdated(function (callable $set, $state) {
-                        $slug = \Str::slug($state); // ubah jadi slug (coba-title)
-                        $set('url', $slug); // isi ke field `url`
+                        $slug = \Str::slug($state);
+                        $set('url', $slug);
                     }),
 
                 TextInput::make('url')
@@ -61,6 +61,14 @@ class PageResource extends Resource
                     ->disableGrammarly()
                     ->columnSpanFull(),
 
+                Textarea::make('keyword')
+                        ->required()
+                        ->helperText('maximum of 60 characters'),
+
+                Textarea::make('description')
+                        ->required()
+                        ->helperText('maximum of 160 characters'),
+
                 FileUpload::make('featured_image')
                     ->label('Featured Image')
                     ->image()
@@ -69,9 +77,6 @@ class PageResource extends Resource
                     ->disk('public')
                     ->visibility('public')
                     // ->maxSize(2048)
-                    ->required(),
-                
-                Textarea::make('keyword')
                     ->required(),
             ]);
     }

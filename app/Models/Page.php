@@ -13,5 +13,6 @@ class Page extends Model
         'content',
         'featured_image',
         'keyword',
+        'description',
     ];
 }

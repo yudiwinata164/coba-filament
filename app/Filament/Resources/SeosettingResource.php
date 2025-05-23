@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\FileUpload;
 
 class SeosettingResource extends Resource
 {
@@ -33,15 +34,28 @@ class SeosettingResource extends Resource
         return $form
             ->schema([
                 TextInput::make('title')
-                    ->required(),
+                    ->columnSpanFull()
+                    ->required()
+                    ->helperText('maximum of 60 characters'),
+                    
+                Textarea::make('description')
+                    ->required()
+                    ->helperText('maximum of 160 characters'),
 
                 Textarea::make('keyword')
-                    ->required(),
+                    ->label('Keywords')
+                    ->required()
+                    ->helperText('Enter a comma as a keyword separator'),
 
-                Textarea::make('metatext')
-                    ->required(),
-
-                Textarea::make('description')
+                FileUpload::make('og_image')
+                    ->label('OG Image')
+                    ->image()
+                    ->directory('seo')
+                    ->preserveFilenames()
+                    ->disk('public')
+                    ->visibility('public')
+                    ->maxSize(2048)
+                    ->helperText('maximum size 2MB')
                     ->required(),
 
             ]);

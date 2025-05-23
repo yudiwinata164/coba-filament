@@ -8,8 +8,8 @@ class Seosetting extends Model
 {
         protected $fillable = [
         'title',
-        'metatext',
         'keyword',
         'description',
+        'og_image',
     ];
 }
