@@ -73,7 +73,7 @@ class PageResource extends Resource
                     ->label('Featured Image')
                     ->image()
                     ->directory('pages')
-                    ->preserveFilenames()
+                    ->preserveFilenames(false)
                     ->disk('public')
                     ->visibility('public')
                     // ->maxSize(2048)
@@ -138,5 +138,15 @@ class PageResource extends Resource
             'create' => Pages\CreatePage::route('/create'),
             'edit' => Pages\EditPage::route('/{record}/edit'),
         ];
+    }
+
+    public static function canAccess(): bool
+    {
+        return in_array(auth()->user()->user_level, ['developer']);
+    }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return in_array(auth()->user()->user_level, ['developer']);
     }
 }

@@ -12,7 +12,7 @@ class PostController extends Controller
     {
         $seosetting = Seosetting::first();
         // Ambil semua post published
-        $posts = Post::where('status', 'published')->latest()->get();
+        $posts = Post::where('status', 'published')->latest()->paginate(10);
         
         return view('frontend.posts.index', compact('posts', 'seosetting'));
     }

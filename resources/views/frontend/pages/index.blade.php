@@ -6,22 +6,22 @@
 @section('og_image', asset('storage/' . $page->featured_image))
 
 @section('content')
-    <!-- Hero Section -->
-<div class="page-hero-section d-flex align-items-center text-white">
-    <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="col-8 mt-5">
-                <h1 class="display-3 fw-bold text-center">{{ $page->title }}</h1>
-                <nav style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
-                    <ol class="breadcrumb d-flex justify-content-center">
-                      <li class="breadcrumb-item"><a href="{{ url('/') }}" class="text-white underline-none">Homepage</a></li>
-                      <li class="breadcrumb-item text-white" aria-current="page">Pages</li>
-                      <li class="breadcrumb-item text-white" aria-current="page">{{ $page->title }}</li>
-                    </ol>
-                </nav>
+<section id="subheader" class="relative jarallax text-light">
+    <img src="https://bracketweb.com/villoz-html/assets/images/backgrounds/slider-1-3.jpg" class="jarallax-img w-100" alt="{{ $seosetting->title }}">
+    <div class="container relative z-index-1000">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 text-center">
+                <h1 class="text-capitalize display-5">{{ $page->title }}</h1>
+                <ul class="crumb">
+                    <li><a href="{{ url('/') }}">Homepage</a></li>
+                    <li class="active">Pages</li>
+                    <li class="active">{{ $page->title }}</li>
+                </ul>
             </div>
         </div>
     </div>
-</div>
+    <div class="de-gradient-edge-top dark"></div>
+    <div class="de-overlay"></div>
+</section>
 {!! $page->content !!}
 @endsection

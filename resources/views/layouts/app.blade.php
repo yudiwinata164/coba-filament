@@ -6,6 +6,9 @@
     <title>@yield('title')</title>
     <meta name="keywords" content="@yield('meta_keywords')" />
     <meta name="description" content="@yield('meta_description')" />
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:locale:alternate" content="en_US">
+
 
     <meta property="og:title" content="@yield('title')">
     <meta property="og:description" content="@yield('meta_description')">
@@ -25,11 +28,15 @@
     <link rel="canonical" href="{{ url('/') }}">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/custom/style.css') }}" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS Files
+    ================================================== -->
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" id="bootstrap">
+    <link href="{{ asset('assets/css/plugins.css') }}" rel="stylesheet" type="text/css" >
+    <link href="{{ asset('assets/css/swiper.css') }}" rel="stylesheet" type="text/css" >
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" >
+    <link href="{{ asset('assets/css/coloring.css') }}" rel="stylesheet" type="text/css" >
+    <!-- color scheme -->
+    <link id="colors" href="{{ asset('assets/css/colors/main-color.css') }}" rel="stylesheet" type="text/css" >
     
     <script type="application/ld+json">
         {
@@ -42,14 +49,30 @@
     </script>
 
 </head>
-<body  class="inria-serif-regular">
+<body>
 
-@include('layouts.header')
+<div id="wrapper">
+    <a href="#" id="back-to-top"></a>
 
-@yield('content')
+            <!-- preloader begin -->
+        <div id="de-loader"></div>
+        <!-- preloader end -->
+    @include('layouts.header')
 
-@include('layouts.footer')
+    @yield('content')
 
-<script src="{{ asset('assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    @include('layouts.footer')
+
+</div>
+
+
+<!-- Javascript Files
+================================================== -->
+<script src="{{ asset('assets/js/plugins.js') }}"></script>
+<script src="{{ asset('assets/js/designesia.js') }}"></script>
+<script src="{{ asset('assets/js/swiper.js') }}"></script>
+<script src="{{ asset('assets/js/custom-swiper-3.js') }}"></script>
+<script src="{{ asset('assets/js/custom-marquee.js') }}"></script>
+
 </body>
 </html>

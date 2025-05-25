@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use Illuminate\Support\Facades\Auth;
 use App\Filament\Resources\SeosettingResource\Pages;
 use App\Filament\Resources\SeosettingResource\RelationManagers;
 use App\Models\Seosetting;
@@ -51,7 +52,7 @@ class SeosettingResource extends Resource
                     ->label('OG Image')
                     ->image()
                     ->directory('seo')
-                    ->preserveFilenames()
+                    ->preserveFilenames(false)
                     ->disk('public')
                     ->visibility('public')
                     ->maxSize(2048)
@@ -91,5 +92,16 @@ class SeosettingResource extends Resource
             'index' => Pages\EditSeoSingleSetting::route('/'),
         ];
     }
+
+    public static function canAccess(): bool
+    {
+        return in_array(auth()->user()->user_level, ['developer']);
+    }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return in_array(auth()->user()->user_level, ['developer']);
+    }
+
 
 }

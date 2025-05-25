@@ -5,130 +5,198 @@
 @section('meta_description', $seosetting->description)
 @section('og_image', asset('storage/' . $seosetting->og_image))
 
+@php
+  // Slider
+  $sliderimages = [
+    ['image_url' => 'https://bracketweb.com/villoz-html/assets/images/backgrounds/slider-1-3.jpg'],
+    ['image_url' => 'http://127.0.0.1:8000/storage/posts/IMG_6220-1.jpg'],
+  ];
+  // endSlider
+
+  // Carousel
+  $slidercarouselfirst = [
+    ['image_url' => 'https://bracketweb.com/villoz-html/assets/images/backgrounds/slider-2-3.jpg', 'alt' => 'Slider 1'],
+  ];
+  $slidercarousels = [
+    ['image_url' => 'https://bracketweb.com/villoz-html/assets/images/backgrounds/slider-1-3.jpg', 'alt' => 'Slider 2'],
+  ];
+  // endCarousel
+
+  // Marquee
+  $marquees =[
+    ['title' => '01. Garden Design'],
+    ['title' => '02. Garden Maintenance'],
+    ['title' => '03. Decking and Patio'],
+    ['title' => '04. Plant Selection'],
+    ['title' => '05. Garden Irrigation'],
+    ['title' => '06. Outdoor Lighting'],
+  ];
+  // endMarquee
+@endphp
+
 
 @section('content')
-<div class="hero-section d-flex align-items-center text-white">
-  <div class="container">
-    <h1 class="display-3 fw-bold text-center">Lorem Ipsum</h1>
-      <p class="fs-4 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      <div class="d-flex justify-content-center">
-        <div class="dropdown-center">
-          <button class="btn btn-lg btn-outline-light rounded-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Book Now
-          </button>
-          <ul class="dropdown-menu dropdown-menu-light mt-2 p-1 rounded-20">
-            <li><a class="dropdown-item rounded-20" href="#">Booking at Booking.com</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item  rounded-20" href="#">Booking at Traveloka</a></li>
-          </ul>
-        </div>
-      </div>
-  </div>
-</div>
 
-<section class="wrapper content-py pt-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
-        <h2 class="display-5 fw-bold">Welcome To Our <br><span class="text-primary">Lorem Ipsum</span></h2>
-      </div>
-      <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, eos cum maiores sint quisquam consectetur quam ipsum delectus unde dicta aliquid nemo inventore laborum ea. Repellendus molestiae reprehenderit adipisci sequi?</p>
-      </div>
-    </div>
-  </div>
-</section>
+        {{-- content begin --}}
+        <div class="no-bottom no-top" id="content">
 
-<section class="wrapper content-py">
-  <div class="container">
-    <div class="row">
+            <div id="top"></div>
 
-      <div class="col-12 col-md-7">
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-            <!-- <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            </div> -->
-            
-          <div class="carousel-inner">
-            <div class="carousel-item carousel-item-6 active">
-              <img src="https://bracketweb.com/villoz-html/assets/images/backgrounds/slider-2-3.jpg" class="d-block w-100" alt="Slide 1">
-            </div>
-            <div class="carousel-item carousel-item-6">
-              <img src="https://bracketweb.com/villoz-html/assets/images/backgrounds/slider-1-3.jpg" class="d-block w-100" alt="Slide 2">
-            </div>
-          </div>
-          <div class="carousel-caption d-flex align-items-start text-white">
-            <div class="container">
-              <h6 class="display-6 text-start fw-bold">Lorem Ipsum</h6>
-              <p class="fs-6 text-start">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-          </div>
+            <section class="text-light no-top no-bottom relative overflow-hidden z-1000">
+                <div class="h-40 de-gradient-edge-top op-5 dark z-2"></div>
+                <div class="v-center relative">
 
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-5 mt-3 mt-md-0">
-        <div class="container bg-gray box-400 rounded-20 d-flex flex-column justify-content-center align-items-center text-center">
-          <div class="container">
-            <h4 class="fw-bold">Lorem Ipsum <br><span class="text-primary">Dolor Sit Amet</span></h4>
-            <p class="fs-6">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt accusantium rem voluptates magni aspernatur rerum optio voluptas exercitationem itaque obcaecati, dolore quae libero esse velit at quod? Voluptas, officia eum?</p>
-            <a href="#" class="btn btn-outline-dark rounded-pill btn-lg">Learn More</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="wrapper">
-  <div class="content-py bg-gray">
-    <div class="container">
-
-      <div class="row justify-content-center">
-        <div class="col-8 mb-3 text-center">
-          <h2 class="fw-bold">Recent Posts</h2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-      </div>
-
-      <div class="row justify-content-center g-3">
-
-            @foreach ($posts as $post)
-                <div class="col-12 col-md-3">
-                    <a href="{{ url($post->url) }}">
-                        <div class="card text-bg-dark custom-card">
-                            @if ($post->featured_image)
-                                <img src="{{ asset('storage/' . $post->featured_image) }}" class="card-img h-100" alt="{{ $post->title }}" loading="lazy">
-                            @endif
-                            <div class="card-img-overlay">
-                                <p class="card-text btn btn-primary rounded-0 btn-sm">{{ $post->category->category }}</p>
-                                <h3 class="cart-title text-capitalize">{{ $post->title }}</h3>
-                                <p class="card-text">{{ $post->created_at->format('m/d/Y') }}</p>
+                    <div class="abs abs-centered z-1000 w-100">
+                        <div class="container mt-md-5">
+                            <div class="row g-4 justify-content-center text-center align-items-center">
+                                <div class="col-lg-7">
+                                    <h1 class="text-uppercase display-5 wow fadeInUp" data-wow-delay=".3s">Transforming Yards Enriching Lives</h1>
+                                    <p class="wow fadeInUp" data-wow-delay=".6s">Imagine stepping into your own outdoor paradise. Something beautiful is blooming soon!.</p>
+                                    <button class="dropdown-toggle btn-main fw-normal btn-md wow fadeInDown" data-wow-delay=".9s" type="button" data-bs-toggle="dropdown" aria-expanded="false">Book Now</button>
+                                    <ul class="dropdown-menu bg-white rounded-md my-2">
+                                      <li><a class="dropdown-item text-dark" href="#">Booking at Traveloka</a></li>
+                                      <li><a class="dropdown-item text-dark" href="#">Booking at Agoda</a></li>
+                                    </ul>
+                                    <div class="spacer-single"></div>
+                                </div>
                             </div>
                         </div>
-                    </a>
-                </div>
-            @endforeach
+                    </div>
 
-            <div class="col-12 mt-4 d-flex justify-content-end">
-              <a href="{{ url('/posts') }}" class="btn text-end btn-primary">
-                View All Posts
-              </a>
+                    <div class="swiper start-swiper">
+                      {{-- Additional required wrapper --}}
+                      <div class="swiper-wrapper">
+
+                        {{-- Slides --}}
+                        @foreach ($sliderimages as $sliderimage)
+                        <div class="swiper-slide">
+                            <div class="swiper-inner" data-bgimage="url({{ $sliderimage['image_url'] }})">
+                                <div class="sw-overlay op-2"></div>
+                            </div>
+                        </div>
+                        @endforeach                
+                        {{-- endSlides --}}
+
+                      </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- content end -->
+
+        <section class="bg-white pt-md-5">
+            <div class="container py-md-5">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="col-md-9">
+                            <h2 class="display-5 wow fadeInUp" data-wow-delay=".4s">Welcome To Our <span class="id-color-2">Lorem Ipsum</span></h2>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="wow fadeInUp" data-wow-delay=".6s">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto dicta temporibus praesentium similique vero, obcaecati non doloremque aperiam, ea quis officiis architecto dolore incidunt quos tenetur cum illo reprehenderit dolor!</p>
+                    </div>
+                </div>
             </div>
 
-      </div>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            </div>
+            
+                            <div class="carousel-inner rounded-30px wow fadeInLeft" data-wow-delay=".5s">
+                              <div class="carousel-item carousel-item-6 active">
+                                  <img src="{{ $slidercarouselfirst[0]['image_url'] }}" class="d-block w-100" alt="{{ $slidercarouselfirst[0]['alt'] }}">
+                              </div>
+                              @foreach ($slidercarousels as $slidercarousel)
+                                <div class="carousel-item carousel-item-6">
+                                    <img src="{{ $slidercarousel['image_url'] }}" class="d-block w-100" alt="{{ $slidercarousel['alt'] }}">
+                                </div>
+                              @endforeach
+                            </div>
 
-    </div>
-  </div>
-</section>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="ps-lg-3 my-3">
+                            <div class="subtitle text-capitalize fw-normal id-color wow fadeInUp" data-wow-delay=".2s">Welcome to Gardyn</div>
+                            <h2 class="display-5 wow fadeInUp" data-wow-delay=".4s">Crafting Living <span class="id-color-2">Masterpieces</span></h2>
+                            <p class="wow fadeInUp" data-wow-delay=".6s">At Gardyn, we’re passionate about turning your garden into a true reflection of your personal style and a haven for relaxation and enjoyment. Whether you’re dreaming of a vibrant floral display, a serene outdoor retreat, or a stunning landscape transformation.</p>
+                            <a class="btn-main wow fadeInUp text-capitalize fw-normal" href="services.html" data-wow-delay=".6s">More About Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{-- marquee section begin --}}
+        <div class="pb-1 bg-light">
+            <div class="wow fadeInRight d-flex">
+                <div class="de-marquee-list pt-2 relative wow">
+                  @foreach ($marquees as $marquee)
+                    <span class="fs-20 lh-1 mx-4 text-uppercase title-font">{{ $marquee['title'] }}</span>
+                  @endforeach
+                </div>
+            </div>
+        </div>
+        {{-- marquee section end --}}
+
+        {{-- marquee section begin --}}
+        <section class="pt-2 pb-1 bg-color mb60">
+            <div class="wow fadeInLeft d-flex">
+                <div class="de-marquee-list-2 relative wow">
+                  @foreach ($marquees as $marquee)
+                    <span class="fs-20 lh-1 mx-4 text-light text-uppercase title-font">{{ $marquee['title'] }}</span>
+                  @endforeach
+                </div>
+            </div>
+        </section>   
+        {{-- marquee section end --}}
+
+
+        <section class="px-4 pt-md-5">
+            <div class="container-fluid">
+                <div class="row g-4 align-items-center justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <div class="subtitle text-capitalize wow fadeInUp">Our Works</div>
+                        <h2 class="text-capitalize display-5 mb-4 wow fadeInUp" data-wow-delay=".2s">Recent <span class="id-color-2">Posts</span></h2>
+                    </div>                        
+                </div>
+
+                <div class="row g-4 justify-content-center">
+                  @foreach ($posts->take(3) as $post)
+                  <div class="col-lg-4">
+                      <div class="hover rounded-1 overflow-hidden relative text-light wow fadeInRight" data-wow-delay=".3s">
+                          <a href="{{ url($post->url) }}" class="abs w-100 h-100 z-5"></a>
+                          @if ($post->featured_image)
+                            <img src="{{ asset('storage/' . $post->featured_image) }}" class="hover-scale-1-1 card-post-image" alt="{{ $post->title }}" loading="lazy">
+                          @endif
+                          <div class="abs z-2 bottom-0 w-100">
+                              <div class="p-3 rounded-1 justify-content-between align-items-center">
+                                  <div class="">
+                                      <div class="post-subtitle-card text-capitalize fw-normal my-1 bg-primary wow fadeInUp">{{ $post->category->category }}</div>
+                                      <h4 class="post-title-card fw-500 my-2">{{ $post->title }}</h4>
+                                      <p class="post-date-card my-1">{{ $post->created_at->format('m/d/Y') }}</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="gradient-trans-dark-bottom abs w-100 h-40 bottom-0"></div>
+                      </div>
+                  </div>
+                  @endforeach
+
+                  <div class="col-lg-12 text-center">
+                      <a class="btn-main fw-normal text-capitalize wow fadeInUp" href="{{ url('/posts') }}">View All Posts</a>
+                  </div>
+
+                </div>
+            </div>
+        </section>
 @endsection

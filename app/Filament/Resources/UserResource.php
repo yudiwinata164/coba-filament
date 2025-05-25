@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use Illuminate\Support\Facades\Auth;
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\User;
@@ -15,6 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Select;
 
 class UserResource extends Resource
 {
@@ -41,6 +43,16 @@ class UserResource extends Resource
                     ->required()
                     ->password()
                     ->revealable(),
+
+                Select::make('user_level')
+                    ->label('Level Akses')
+                    ->options([
+                        'manajemen' => 'Manajemen',
+                        'administrator' => 'Administrator',
+                        'developer' => 'Developer',
+                    ])
+                    ->required()
+                    ->visible(fn () => in_array(auth()->user()->user_level, ['developer', 'administrator']))
 
             ]);
     }
@@ -81,5 +93,15 @@ class UserResource extends Resource
             'create' => Pages\CreateUser::route('/create'),
             'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
+    }
+
+    public static function canAccess(): bool
+    {
+        return in_array(auth()->user()->user_level, ['developer','administrator']);
+    }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return in_array(auth()->user()->user_level, ['developer','administrator']);
     }
 }

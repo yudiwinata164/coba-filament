@@ -85,7 +85,7 @@ class PostResource extends Resource
                     ->label('Featured Image')
                     ->image()
                     ->directory('posts')
-                    ->preserveFilenames()
+                    ->preserveFilenames(false)
                     ->disk('public')
                     ->visibility('public')
                     // ->maxSize(2048)
