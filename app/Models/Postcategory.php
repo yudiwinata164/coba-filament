@@ -11,5 +11,6 @@ class Postcategory extends Model
         'url',
         'status',
         'keyword',
+        'description',
     ];
 }

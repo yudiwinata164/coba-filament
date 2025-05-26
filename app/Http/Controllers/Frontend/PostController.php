@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\Postcategory;
 use App\Models\Seosetting;
 
 class PostController extends Controller
@@ -13,8 +14,9 @@ class PostController extends Controller
         $seosetting = Seosetting::first();
         // Ambil semua post published
         $posts = Post::where('status', 'published')->latest()->paginate(10);
+        $categories = Postcategory::where('status', 'published')->latest()->get();
         
-        return view('frontend.posts.index', compact('posts', 'seosetting'));
+        return view('frontend.posts.index', compact('posts', 'categories', 'seosetting'));
     }
     
     

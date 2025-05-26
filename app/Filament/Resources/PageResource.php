@@ -61,13 +61,13 @@ class PageResource extends Resource
                     ->disableGrammarly()
                     ->columnSpanFull(),
 
+                Textarea::make('description')
+                    ->required()
+                    ->helperText('maximum of 160 characters'),
+
                 Textarea::make('keyword')
                         ->required()
-                        ->helperText('maximum of 60 characters'),
-
-                Textarea::make('description')
-                        ->required()
-                        ->helperText('maximum of 160 characters'),
+                        ->helperText('Enter a comma as a keyword separator'),
 
                 FileUpload::make('featured_image')
                     ->label('Featured Image')

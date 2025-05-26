@@ -183,7 +183,7 @@
                                   <div class="">
                                       <div class="post-subtitle-card text-capitalize fw-normal my-1 bg-primary wow fadeInUp">{{ $post->category->category }}</div>
                                       <h4 class="post-title-card fw-500 my-2">{{ $post->title }}</h4>
-                                      <p class="post-date-card my-1">{{ $post->created_at->format('m/d/Y') }}</p>
+                                      <p class="post-date-card my-1">{{ $post->created_at->format('M d, Y') }}</p>
                                   </div>
                               </div>
                           </div>

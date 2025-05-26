@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('url');
             $table->string('status');
             $table->string('keyword');
+            $table->string('description', 160);
             $table->timestamps();
         });
     }

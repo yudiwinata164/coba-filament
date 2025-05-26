@@ -26,10 +26,10 @@
 </section>
 
 <section>
-    <div class="container">
+    <div class="container-fluid p-2 p-md-4">
         <div class="row gx-5">
-            <div class="col-lg-8">
-                <div class="blog-read bg-white p-2 p-md-4 rounded-1">
+            <div class="col-12 col-md-9">
+                <div class="blog-read bg-white p-3 p-md-4 rounded-1">
 
                     <div class="post-text">
                         <img src="{{ asset('storage/' . $post->featured_image) }}" class="w-100 rounded-1" alt="{{ $post->title }}" loading="lazy">
@@ -51,6 +51,9 @@
                 </div>
 
                 <div class="spacer-single"></div>
+            </div>
+            <div class="col-12 col-md-3">
+                 @include('layouts.widget')
             </div>
         </div>
     </div>

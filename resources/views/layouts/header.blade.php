@@ -18,7 +18,7 @@
                     <div class="de-flex sm-pt10">
                         <div class="de-flex-col">
                             <div id="logo">
-                                <a href="index.html">
+                                <a href="{{ url('/') }}">
                                     <img class="logo-main" src="{{ asset('assets/images/logo-white.webp') }}" alt="Logo">
                                     <img class="logo-mobile" src="{{ asset('assets/images/logo-white.webp') }}" alt="Logo">
                                 </a>

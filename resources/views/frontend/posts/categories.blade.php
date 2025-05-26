@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', ('All Posts - '.$seosetting->title))
-@section('meta_keywords', $seosetting->keyword)
-@section('meta_description', $seosetting->description)
+@section('title', ($category->category.' - '.$seosetting->title))
+@section('meta_keywords', $category->keyword)
+@section('meta_description', $category->description)
 @section('og_image', asset('storage/' . $seosetting->og_image))
 
 @section('content')
@@ -11,10 +11,11 @@
     <div class="container relative z-index-1000">
         <div class="row justify-content-center">
             <div class="col-lg-6 text-center">
-                <h1 class="text-capitalize display-5">All Posts</h1>
+                <h1 class="text-capitalize display-5">{{ $category->category }}</h1>
                 <ul class="crumb">
                     <li><a href="{{ url('/') }}">Homepage</a></li>
-                    <li class="active">Posts</li>
+                    <li class="active">Categories</li>
+                    <li class="active">{{ $category->category }}</li>
                 </ul>
             </div>
         </div>
@@ -30,7 +31,7 @@
                 <div class="row g-4">
 
                   @foreach ($posts as $post)
-                  <div class="{{ $loop->first ? 'col-md-8' : 'col-md-4' }}">
+                  <div class="col-md-4">
                       <div class="hover rounded-1 overflow-hidden relative text-light wow fadeInRight" data-wow-delay=".3s">
                           <a href="{{ url($post->url) }}" class="abs w-100 h-100 z-5"></a>
                           @if ($post->featured_image)
@@ -39,7 +40,7 @@
                           <div class="abs z-2 bottom-0 w-100">
                               <div class="p-3 rounded-1 justify-content-between align-items-center">
                                   <div class="">
-                                      <div class="post-subtitle-card text-capitalize fw-normal my-1 bg-primary wow fadeInUp">{{ $post->category->category }}</div>
+                                      <div class="post-subtitle-card text-capitalize fw-normal my-1 bg-primary wow fadeInUp">{{ $category->category }}</div>
                                       <h4 class="post-title-card fw-500 my-2">{{ $post->title }}</h4>
                                       <p class="post-date-card my-1">{{ $post->created_at->format('M d, Y') }}</p>
                                   </div>
@@ -65,4 +66,5 @@
     </div>
 </section>
 
+    {{ $posts->links() }}
 @endsection

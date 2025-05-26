@@ -48,14 +48,21 @@ class PostcategoriesResource extends Resource
                     ->label('URL Slug')
                     ->prefix(config('app.url') . '/')
                     ->required(),
-
+                    
+                Textarea::make('description')
+                    ->required()
+                    ->helperText('maximum of 160 characters'),
+                    
+                Textarea::make('keyword')
+                    ->required()
+                    ->helperText('Enter a comma as a keyword separator'),
+                    
                 Select::make('status')
-                ->options([
-                    'published' => 'Published',
-                    'draft' => 'Draft',
-                ]),
-
-                Textarea::make('keyword'),
+                    ->options([
+                        'published' => 'Published',
+                        'draft' => 'Draft',
+                    ])
+                    ->required(),
             ]);
     }
 

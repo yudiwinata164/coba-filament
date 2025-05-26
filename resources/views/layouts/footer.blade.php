@@ -21,10 +21,10 @@
                                 <div class="widget">
                                     <h5>Pages</h5>
                                     <ul>                      
-                                        <li><a href="#">Rooms & Villa</a></li>
-                                        <li><a href="#">Facilities</a></li>
-                                        <li><a href="#">Gallery</a></li>
-                                        <li><a href="#">Posts</a></li>
+                                        <li><a href="{{ url('rooms-villa') }}">Rooms & Villa</a></li>
+                                        <li><a href="{{ url('facilities') }}">Facilities</a></li>
+                                        <li><a href="{{ url('galleries') }}">Gallery</a></li>
+                                        <li><a href="{{ url('posts') }}">Posts</a></li>
                                     </ul>
                                 </div>
                             </div>

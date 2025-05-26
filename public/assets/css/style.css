@@ -100,6 +100,13 @@ Table of content:
   overflow: hidden;
 }
 
+.circle-widget{
+  aspect-ratio:1/1;
+  object-fit:cover;
+  display:block;
+  height:100%;
+}
+
 .card-post-image{
   width:100%;
   height: 300px !important;

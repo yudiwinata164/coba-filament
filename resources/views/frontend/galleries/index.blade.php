@@ -31,7 +31,7 @@
                             <a href="{{ asset('storage/' . $gallery->image_name) }}" class="image-popup d-block hover">
                                 <div class="relative overflow-hidden rounded-10">
                                     <div class="absolute start-0 w-100 abs-middle fs-36 text-white text-center z-2">
-                                        <h4 class="mb-0 hover-scale-in-3 bg-blur">View</h4>
+                                        <h4 class="mb-0 hover-scale-in-3">View</h4>
                                     </div> 
                                     <div class="absolute w-100 h-100 top-0 bg-dark hover-op-05"></div>
                                     <img src="{{ asset('storage/' . $gallery->image_name) }}" class="img-fluid card-post-image hover-scale-1-2" alt="">
