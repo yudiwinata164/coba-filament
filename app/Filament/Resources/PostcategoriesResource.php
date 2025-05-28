@@ -63,6 +63,14 @@ class PostcategoriesResource extends Resource
                         'draft' => 'Draft',
                     ])
                     ->required(),
+
+                Select::make('language')
+                    ->label('Language')
+                    ->options([
+                        'en' => 'EN',
+                        'id' => 'ID',
+                    ])
+                    ->required(),
             ]);
     }
 
@@ -82,6 +90,9 @@ class PostcategoriesResource extends Resource
                         return config('app.url') . '/' . $record->url;
                     }, true)
                     ->openUrlInNewTab(),
+
+                TextColumn::make('language')
+                    ->searchable(),
 
                 TextColumn::make('status')
                     ->label('Status')

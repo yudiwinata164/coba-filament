@@ -17,7 +17,13 @@ Route::get('/galleries', [GalleryController::class, 'index'])->name('galleries.i
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/{slug}', [HandleSlugController::class, 'handle'])->name('slug.handle');
 
-Route::get('/widget', [WidgetController::class, 'index']);
+Route::get('/lang/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'id'])) {
+        session(['locale' => $locale]);
+    }
+    return redirect()->back();
+})->name('lang.switch');
+
 
 
 

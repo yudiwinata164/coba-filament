@@ -11,7 +11,7 @@
     <div class="container relative z-index-1000">
         <div class="row justify-content-center">
             <div class="col-lg-6 text-center">
-                <h1 class="text-capitalize display-5">All Posts</h1>
+                <h1 class="text-capitalize display-5">{{ __('homepage.all_post') }}</h1>
                 <ul class="crumb">
                     <li><a href="{{ url('/') }}">Homepage</a></li>
                     <li class="active">Posts</li>

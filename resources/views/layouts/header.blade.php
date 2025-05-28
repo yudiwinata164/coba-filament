@@ -1,14 +1,18 @@
 {{-- Field Menu --}}
 @php
   $menus = [
-    ['title' => 'Homepage', 'url' => url('/'), 'pattern' => '/'],
-    // ['title' => 'Rooms & Villa', 'url' => url('/room-villa'), 'pattern' => 'room-villa*'],
-    ['title' => 'About Us', 'url' => url('/about-us'), 'pattern' => 'about-us*'],
-    ['title' => 'Fasilities', 'url' => url('/facilities'), 'pattern' => 'facilities*'],
-    ['title' => 'Gallery', 'url' => url('/galleries'), 'pattern' => 'galleries*'],
-    ['title' => 'Contact Us', 'url' => url('/contact'), 'pattern' => 'contact*'],
+    ['title' => __('homepage.homepage'), 'url' => url('/'), 'pattern' => '/'],
+    ['title' => __('homepage.about_us'), 'url' => url('/about-us'), 'pattern' => 'about-us*'],
+    ['title' => __('homepage.facilities'), 'url' => url('/facilities'), 'pattern' => 'facilities*'],
+    ['title' => __('homepage.gallery'), 'url' => url('/galleries'), 'pattern' => 'galleries*'],
+    ['title' => __('homepage.contact_us'), 'url' => url('/contact'), 'pattern' => 'contact*'],
   ];
 @endphp
+
+@php
+    $lang = session('locale', 'en');
+@endphp
+
     
     {{-- Header --}}
     <header class="transparent">
@@ -30,12 +34,29 @@
                               @foreach ($menus as $menu)
                                 <li><a class="menu-item {{ Request::is($menu['pattern']) ? 'active' : '' }}" href="{{ $menu['url'] }}">{{ $menu['title'] }}</a></li>
                               @endforeach
+                                {{-- <div class="w-50">
+                                    <div class="language-switch d-flex d-md-none">
+                                        <a href="{{ route('lang.switch', 'en') }}" class="{{ $lang == 'en' ? 'active' : '' }}">
+                                            <img src="{{ asset('assets/images/flag/uk-flag-round-circle-icon.svg') }}" alt="UK Flag">EN
+                                        </a>
+                                        <a href="{{ route('lang.switch', 'id') }}" class="{{ $lang == 'id' ? 'active' : '' }}">
+                                            <img src="{{ asset('assets/images/flag/id-flag-round-circle-icon.svg') }}" alt="ID Flag">ID
+                                        </a>
+                                    </div>
+                                </div> --}}
                             </ul>
                         </div>
 
                         <div class="de-flex-col">
-                            <div class="menu_side_area">
-                                <a href="#" class="btn-main btn-line">Book Now</a>
+                            <div class="menu_side_area d-flex justify-content-center align-item-center">
+                                <div class="language-switch">
+                                    <a href="{{ route('lang.switch', 'en') }}" class="{{ $lang == 'en' ? 'active' : '' }}">
+                                        <img src="{{ asset('assets/images/flag/uk-flag-round-circle-icon.svg') }}" alt="UK Flag">EN
+                                    </a>
+                                    <a href="{{ route('lang.switch', 'id') }}" class="{{ $lang == 'id' ? 'active' : '' }}">
+                                        <img src="{{ asset('assets/images/flag/id-flag-round-circle-icon.svg') }}" alt="ID Flag">ID 
+                                    </a>
+                                </div>
                                 <div id="menu-btn">
                                     <span></span>
                                     <span></span>

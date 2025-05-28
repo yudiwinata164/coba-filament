@@ -91,6 +91,49 @@ Table of content:
 }
 
   /* custom */
+
+.language-switch {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f0f0f0;
+    border-radius: 20px;
+    padding: 3px;
+    font-weight: bold;
+    color: #999;
+    gap: 4px;
+    width: 100%;
+    max-width: 180px;
+    box-sizing: border-box;
+}
+
+.language-switch a {
+    text-decoration: none;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    flex: 1;
+    justify-content: center;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+.language-switch a img {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.language-switch a.active {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
 .jarallax-img{
   border-radius:0 0 30px 30px;
 }

@@ -23,6 +23,8 @@ use Filament\Forms\Components\FileUpload;
 
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
 
 class PostResource extends Resource
 {
@@ -35,11 +37,21 @@ class PostResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
+                ->columns([
+                    'sm' => 3,
+                    'xl' => 6,
+                    '2xl' => 8,
+                ])
             ->schema([
                 TextInput::make('title')
                     ->required()
                     ->reactive()
                     ->debounce(2000)
+                    ->columnSpan([
+                        'sm' => 2,
+                        'xl' => 4,
+                        '2xl' => 4,
+                    ])
                     ->afterStateUpdated(function (callable $set, $state) {
                         $slug = \Str::slug($state);
                         $set('url', $slug);
@@ -48,15 +60,11 @@ class PostResource extends Resource
                 TextInput::make('url')
                     ->label('URL Slug')
                     ->prefix(config('app.url') . '/')
-                    ->required(),
-
-                Select::make('category_id')
-                    ->label('Category')
-                    ->options(function () {
-                        return \App\Models\Postcategory::where('status', 'published')
-                            ->pluck('category', 'id');
-                    })
-                    ->searchable()
+                    ->columnSpan([
+                        'sm' => 2,
+                        'xl' => 4,
+                        '2xl' => 4,
+                    ])
                     ->required(),
 
                                 
@@ -66,20 +74,75 @@ class PostResource extends Resource
                         'published' => 'Published',
                         'draft' => 'Draft',
                     ])
+                    ->columnSpan([
+                        'sm' => 2,
+                        'xl' => 2,
+                        '2xl' => 2,
+                    ])
                     ->native(false),
-                
+
+                Select::make('language')
+                    ->label('Language')
+                    ->required()
+                    ->options([
+                        'en' => 'EN',
+                        'id' => 'ID',
+                    ])
+                    ->reactive() // agar perubahan language bisa dipantau
+                    ->afterStateUpdated(fn (Set $set) => $set('category_id', null)) // reset category saat language berubah
+                    ->columnSpan([
+                        'sm' => 2,
+                        'xl' => 2,
+                        '2xl' => 2,
+                    ])
+                    ->native(false),
+
+                Select::make('category_id')
+                    ->label('Category')
+                    ->reactive()
+                    ->options(function (Get $get) {
+                        $language = $get('language');
+
+                        if (!$language) {
+                            return []; // jika belum memilih bahasa, kosongkan opsi
+                        }
+
+                        return \App\Models\Postcategory::where('status', 'published')
+                            ->where('language', $language)
+                            ->pluck('category', 'id');
+                    })
+                    ->searchable()
+                    ->required()
+                    ->columnSpan([
+                        'sm' => 2,
+                        'xl' => 4,
+                        '2xl' => 4,
+                    ])
+                    ->placeholder(fn (Get $get) => $get('language') ? 'Select Category' : 'Select language first')
+                    ->disabled(fn (Get $get) => !$get('language')),
+
                 RichEditor::make('content')
                     ->required()
                     ->disableGrammarly()
                     ->columnSpanFull(),
 
                 Textarea::make('description')
-                        ->required()
-                        ->helperText('maximum of 160 characters'),
+                    ->required()
+                    ->columnSpan([
+                        'sm' => 2,
+                        'xl' => 4,
+                        '2xl' => 4,
+                    ])
+                    ->helperText('maximum of 160 characters'),
 
                 Textarea::make('keyword')
-                        ->required()
-                        ->helperText('Enter a comma as a keyword separator'),
+                    ->required()
+                    ->columnSpan([
+                        'sm' => 2,
+                        'xl' => 4,
+                        '2xl' => 4,
+                    ])
+                    ->helperText('Enter a comma as a keyword separator'),
 
                 FileUpload::make('featured_image')
                     ->label('Featured Image')
@@ -89,6 +152,11 @@ class PostResource extends Resource
                     ->disk('public')
                     ->visibility('public')
                     // ->maxSize(2048)
+                    ->columnSpan([
+                        'sm' => 2,
+                        'xl' => 4,
+                        '2xl' => 4,
+                    ])
                     ->required(),                
 
             ]);
@@ -128,6 +196,8 @@ class PostResource extends Resource
                     ->searchable()
                     ->sortable(),
 
+                TextColumn::make('language')
+                    ->searchable(),
 
                 TextColumn::make('status')
                     ->label('Status')

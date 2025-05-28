@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('category');
             $table->string('url');
+            $table->string('language', 2);
             $table->string('status');
             $table->string('keyword');
             $table->string('description', 160);

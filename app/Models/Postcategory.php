@@ -9,6 +9,7 @@ class Postcategory extends Model
     protected $fillable = [
         'category',
         'url',
+        'language',
         'status',
         'keyword',
         'description',

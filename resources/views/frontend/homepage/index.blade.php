@@ -9,7 +9,7 @@
   // Slider
   $sliderimages = [
     ['image_url' => 'https://bracketweb.com/villoz-html/assets/images/backgrounds/slider-1-3.jpg'],
-    ['image_url' => 'http://127.0.0.1:8000/storage/posts/IMG_6220-1.jpg'],
+    // ['image_url' => 'http://127.0.0.1:8000/storage/posts/IMG_6220-1.jpg'],
   ];
   // endSlider
 
@@ -50,7 +50,7 @@
                         <div class="container mt-md-5">
                             <div class="row g-4 justify-content-center text-center align-items-center">
                                 <div class="col-lg-7">
-                                    <h1 class="text-uppercase display-5 wow fadeInUp" data-wow-delay=".3s">Transforming Yards Enriching Lives</h1>
+                                    <h1 class="text-uppercase display-5 wow fadeInUp" data-wow-delay=".3s">{{ __('homepage.h1_hero') }}</h1>
                                     <p class="wow fadeInUp" data-wow-delay=".6s">Imagine stepping into your own outdoor paradise. Something beautiful is blooming soon!.</p>
                                     <button class="dropdown-toggle btn-main fw-normal btn-md wow fadeInDown" data-wow-delay=".9s" type="button" data-bs-toggle="dropdown" aria-expanded="false">Book Now</button>
                                     <ul class="dropdown-menu bg-white rounded-md my-2">

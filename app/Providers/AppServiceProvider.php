@@ -19,6 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        app('router')->pushMiddlewareToGroup('web', \App\Http\Middleware\SetLocale::class);
     }
 }

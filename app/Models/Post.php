@@ -11,6 +11,7 @@ class Post extends Model
         'url',
         'category_id',
         'status',
+        'language',
         'content',
         'featured_image',
         'keyword',
