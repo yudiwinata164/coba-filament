@@ -22,16 +22,6 @@
   ];
   // endCarousel
 
-  // Marquee
-  $marquees =[
-    ['title' => '01. Garden Design'],
-    ['title' => '02. Garden Maintenance'],
-    ['title' => '03. Decking and Patio'],
-    ['title' => '04. Plant Selection'],
-    ['title' => '05. Garden Irrigation'],
-    ['title' => '06. Outdoor Lighting'],
-  ];
-  // endMarquee
 @endphp
 
 
@@ -43,7 +33,8 @@
             <div id="top"></div>
 
             <section class="text-light no-top no-bottom relative overflow-hidden z-1000">
-                <div class="h-40 de-gradient-edge-top op-5 dark z-2"></div>
+                <div class="h-30 de-gradient-edge-top op-5 dark z-2"></div>
+                <img src="file:///D:/Gardyn%20HTML/images/logo-wm.webp" class="abs end-0 bottom-0 z-2 w-20" alt="">
                 <div class="v-center relative">
 
                     <div class="abs abs-centered z-1000 w-100">
@@ -51,7 +42,7 @@
                             <div class="row g-4 justify-content-center text-center align-items-center">
                                 <div class="col-lg-7">
                                     <h1 class="text-uppercase display-5 wow fadeInUp" data-wow-delay=".3s">{{ __('homepage.h1_hero') }}</h1>
-                                    <p class="wow fadeInUp" data-wow-delay=".6s">Imagine stepping into your own outdoor paradise. Something beautiful is blooming soon!.</p>
+                                    <p class="wow fadeInUp text-capitalize" data-wow-delay=".6s">{{ __('homepage.description_hero') }}</p>
                                     <button class="dropdown-toggle btn-main fw-normal btn-md wow fadeInDown" data-wow-delay=".9s" type="button" data-bs-toggle="dropdown" aria-expanded="false">Book Now</button>
                                     <ul class="dropdown-menu bg-white rounded-md my-2">
                                       <li><a class="dropdown-item text-dark" href="#">Booking at Traveloka</a></li>
@@ -89,11 +80,11 @@
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="col-md-9">
-                            <h2 class="display-5 wow fadeInUp" data-wow-delay=".4s">Welcome To Our <span class="id-color-2">Lorem Ipsum</span></h2>
+                            <h2 class="display-5 wow fadeInUp" data-wow-delay=".4s">{!! __('homepage.welcome_title') !!}</h2>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <p class="wow fadeInUp" data-wow-delay=".6s">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto dicta temporibus praesentium similique vero, obcaecati non doloremque aperiam, ea quis officiis architecto dolore incidunt quos tenetur cum illo reprehenderit dolor!</p>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">{{ __('homepage.welcome_description') }}</p>
                     </div>
                 </div>
             </div>
@@ -127,8 +118,8 @@
                     <div class="col-lg-6">
                         <div class="ps-lg-3 my-3">
                             <div class="subtitle text-capitalize fw-normal id-color wow fadeInUp" data-wow-delay=".2s">Welcome to Gardyn</div>
-                            <h2 class="display-5 wow fadeInUp" data-wow-delay=".4s">Crafting Living <span class="id-color-2">Masterpieces</span></h2>
-                            <p class="wow fadeInUp" data-wow-delay=".6s">At Gardyn, we’re passionate about turning your garden into a true reflection of your personal style and a haven for relaxation and enjoyment. Whether you’re dreaming of a vibrant floral display, a serene outdoor retreat, or a stunning landscape transformation.</p>
+                            <h2 class="display-5 wow fadeInUp" data-wow-delay=".4s">{!! __('homepage.about_title') !!}</h2>
+                            <p class="wow fadeInUp" data-wow-delay=".6s">{{ __('homepage.about_description') }}</p>
                             <a class="btn-main wow fadeInUp text-capitalize fw-normal" href="services.html" data-wow-delay=".6s">More About Us</a>
                         </div>
                     </div>
@@ -140,7 +131,7 @@
         <div class="pb-1 bg-light">
             <div class="wow fadeInRight d-flex">
                 <div class="de-marquee-list pt-2 relative wow">
-                  @foreach ($marquees as $marquee)
+                  @foreach (__('homepage.marquees') as $marquee)
                     <span class="fs-20 lh-1 mx-4 text-uppercase title-font">{{ $marquee['title'] }}</span>
                   @endforeach
                 </div>
@@ -152,7 +143,7 @@
         <section class="pt-2 pb-1 bg-color mb60">
             <div class="wow fadeInLeft d-flex">
                 <div class="de-marquee-list-2 relative wow">
-                  @foreach ($marquees as $marquee)
+                  @foreach (__('homepage.marquees') as $marquee)
                     <span class="fs-20 lh-1 mx-4 text-light text-uppercase title-font">{{ $marquee['title'] }}</span>
                   @endforeach
                 </div>

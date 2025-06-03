@@ -3,15 +3,11 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PageResource\Pages;
-use App\Filament\Resources\PageResource\RelationManagers;
 use App\Models\Page;
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
@@ -20,7 +16,6 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\ImageColumn;
 
 class PageResource extends Resource
 {
@@ -58,7 +53,6 @@ class PageResource extends Resource
                 
                 RichEditor::make('content')
                     ->required()
-                    ->disableGrammarly()
                     ->columnSpanFull(),
 
                 Textarea::make('description')
@@ -76,7 +70,7 @@ class PageResource extends Resource
                     ->preserveFilenames(false)
                     ->disk('public')
                     ->visibility('public')
-                    // ->maxSize(2048)
+                    ->maxSize(2048)
                     ->required(),
             ]);
     }
